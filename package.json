@@ -1,6 +1,0 @@
-{
-  "name": "vercel-imagekit",
-  "dependencies": {
-    "imagekit": "^1.0.0"
-  }
-}
