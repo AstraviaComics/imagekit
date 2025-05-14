@@ -10,10 +10,11 @@ const imagekit = new ImageKit({
 module.exports = async (req, res) => {
   if (req.method === 'GET') {
     try {
+      // Mengambil authentication parameters dari ImageKit
       const result = imagekit.getAuthenticationParameters();
-      res.status(200).json(result); // Mengirimkan signature untuk upload
+      res.status(200).json(result); // Mengirimkan hasil signature
     } catch (error) {
-      res.status(500).json({ error: 'Failed to get ImageKit auth parameters' });
+      res.status(500).json({ error: 'ImageKit authentication failed', details: error.message });
     }
   } else {
     res.status(200).send("Hello from Serverless Function");
