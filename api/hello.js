@@ -1,5 +1,5 @@
 // /api/hello.js
-import ImageKit from "imagekit";
+const ImageKit = require('imagekit');
 
 const imagekit = new ImageKit({
   publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
@@ -9,11 +9,13 @@ const imagekit = new ImageKit({
 
 module.exports = async (req, res) => {
   if (req.method === 'GET') {
-    // Mengambil authentication parameters dari ImageKit
-    const result = imagekit.getAuthenticationParameters();
-    res.status(200).json(result); // Mengirimkan hasil signature
+    try {
+      const result = imagekit.getAuthenticationParameters();
+      res.status(200).json(result); // Mengirimkan signature untuk upload
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to get ImageKit auth parameters' });
+    }
   } else {
-    // Response default
     res.status(200).send("Hello from Serverless Function");
   }
 };
