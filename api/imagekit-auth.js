@@ -1,14 +1,4 @@
-// /api/imagekit-auth.js
-
-import ImageKit from "imagekit";
-
-const imagekit = new ImageKit({
-  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-});
-
+// pages/api/hello.js
 export default function handler(req, res) {
-  const result = imagekit.getAuthenticationParameters();
-  res.status(200).json(result);
+  res.status(200).json({ message: "Hello from Vercel Function!" });
 }
