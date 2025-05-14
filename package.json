@@ -1,0 +1,10 @@
+{
+  "name": "imagekit-uploader",
+  "version": "1.0.0",
+  "dependencies": {
+    "imagekit": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
